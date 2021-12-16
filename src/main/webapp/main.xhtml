@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xml:lang="en" lang="en">
+
+<h:head>
+    <title>web-3</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body onload="">
+
+    <div class="block">
+        <h:form id="mainForm">
+
+            <div class="input_container">
+                <h:outputLabel for="select_x">Select X:</h:outputLabel>
+                <h:selectOneRadio id="select_x" required="true" value="#{pointBean.point.x}">
+                    <f:validator validatorId="xValidator"/>
+                    <f:selectItem itemValue = "-2" itemLabel = "-2" />
+                    <f:selectItem itemValue = "-1.5" itemLabel = "-1.5" />
+                    <f:selectItem itemValue = "-1" itemLabel = "-1" />
+                    <f:selectItem itemValue = "-0.5" itemLabel = "-0.5" />
+                    <f:selectItem itemValue = "0" itemLabel = "0" />
+                    <f:selectItem itemValue = "0.5" itemLabel = "0.5" />
+                    <f:selectItem itemValue = "1" itemLabel = "1" />
+                    <f:selectItem itemValue = "1.5" itemLabel = "1.5" />
+                </h:selectOneRadio>
+            </div>
+
+            <div class="input_container">
+                <h:outputLabel for="select_y">Type Y (-3 ... 3):</h:outputLabel>
+                <h:inputText id="select_y" maxlength="6" value="#{pointBean.point.y}" required="true">
+                    <f:validator validatorId="yValidator"/>
+                </h:inputText>
+            </div>
+
+            <div class="input_container">
+                <h:outputLabel for="select_r">Choose R:</h:outputLabel>
+                <h:selectOneMenu id="select_r" styleClass="select_r" value="#{pointBean.point.r}" onchange="pressR()">
+                    <f:selectItem itemValue = "1" itemLabel = "1" />
+                    <f:selectItem itemValue = "2" itemLabel = "2" />
+                    <f:selectItem itemValue = "3" itemLabel = "3" />
+                    <f:selectItem itemValue = "4" itemLabel = "4" />
+                    <f:selectItem itemValue = "5" itemLabel = "5" />
+                </h:selectOneMenu>
+            </div>
+
+            <h:commandButton value = "submit" action="#{pointBean.addPoint}" styleClass="submit-button">
+                <f:ajax render="results" execute="@form"/>
+            </h:commandButton>
+
+            <br/>
+            <h:message for="select_x" style="color:red"/>
+            <br/>
+            <h:message for="select_y" style="color:red"/>
+            <br/>
+            <h:message for="select_r" style="color:red"/>
+        </h:form>
+
+        <h:form styleClass="hidden_form">
+            <h:inputText styleClass="hidden_x" maxlength="6" value="#{pointBean.point.x}">
+                <f:validator validatorId="xValidator"/>
+            </h:inputText>
+            <h:inputText styleClass="hidden_y" maxlength="6" value="#{pointBean.point.y}">
+                <f:validator validatorId="yValidator"/>
+            </h:inputText>
+            <h:selectOneMenu styleClass="hidden_r" value="#{pointBean.point.r}" onchange="pressR()">
+                <f:validator validatorId="rValidator"/>
+                <f:selectItem itemValue = "1" itemLabel = "1" />
+                <f:selectItem itemValue = "2" itemLabel = "2" />
+                <f:selectItem itemValue = "3" itemLabel = "3" />
+                <f:selectItem itemValue = "4" itemLabel = "4" />
+                <f:selectItem itemValue = "5" itemLabel = "5" />
+            </h:selectOneMenu>
+            <h:commandButton action="#{pointBean.addPoint}" styleClass="hidden-submit-button"></h:commandButton>
+        </h:form>
+    </div>
+
+    <div class="block">
+        <canvas id="myCanvas" width="500" height="500">
+        </canvas>
+    </div>
+
+    <div class="block">
+        <h:dataTable id="results" value="#{pointBean.points}" var="p">
+            <h:column>
+                <f:facet name="header">x</f:facet>
+                <h:outputText value="#{p.x}" styleClass="xdata"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">y</f:facet>
+                <h:outputText value="#{p.y}" styleClass="ydata"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">r</f:facet>
+                <h:outputText value="#{p.r}" styleClass="rdata"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">result</f:facet>
+                <h:outputText value="#{p.result}" styleClass="resultdata"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">timestamp</f:facet>
+                <h:outputText value="#{p.timestamp}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">runtime</f:facet>
+                <h:outputText value="#{p.runtime} ms"/>
+            </h:column>
+        </h:dataTable>
+    </div>
+
+    <h:link outcome="index">
+        <div class="block link-block">
+            back
+        </div>
+    </h:link>
+
+</h:body>
+
+<h:outputScript library="js" name="main.js" />
+<h:outputScript library="js" name="canvas.js" />
+</html>

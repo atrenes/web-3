@@ -1,0 +1,107 @@
+body {
+    background: #e5f8ff;
+}
+
+.block {
+    background: #5eaecc;
+    box-shadow: 0 0 5px #999999;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    margin-bottom: 20px;
+    padding: 20px;
+
+    border-radius: 30px;
+
+    transition: 1s;
+}
+
+.block:hover {
+    box-shadow: 0 0 20px #999999;
+}
+
+#header {
+    font-family: monospace;
+    font-size: 25px;
+    color: white;
+}
+
+#header > div {
+    text-align: center;
+}
+
+canvas {
+    padding: 0;
+    /*width: 50%;
+    height: 50%;*/
+    display: block;
+    margin: 0 auto;
+}
+
+.input_container {
+    font-family: monospace;
+    font-size: 25px;
+    color: white;
+
+    margin-left: 30px;
+    /*display: flex;
+    justify-content: left;
+    align-items: center;*/
+}
+
+#select_x {
+    width: 30%;
+}
+
+label {
+    margin-right: 10px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+
+    font-family: monospace;
+    border: none;
+    border-radius: 5px;
+    background: #F7FDFF;
+    transition: 500ms;
+}
+
+button:hover {
+    background: #cccccc;
+    cursor: pointer;
+}
+
+#img_container {
+    background: #e5f8ff;
+}
+
+table {
+    font-family: monospace;
+    font-size: 20px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    background: #e5f8ff;
+}
+
+th {
+    margin: 10px;
+    padding: 10px;
+    background: #5eaecc;
+    width: auto;
+}
+
+td {
+    width: auto;
+    background: #5eaecc;
+    text-align: center;
+    padding: 10px;
+}

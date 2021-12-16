@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+.hidden_x, .hidden_y, .hidden_form {
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #e5f8ff;
+}
+
+.block {
+    font-family: 'Montserrat', sans-serif;
+    background: #5eaecc;
+    box-shadow: 0 0 5px #999999;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    margin-bottom: 20px;
+    padding: 20px;
+
+    border-radius: 30px;
+
+    transition: 1s;
+}
+
+.block:hover {
+    box-shadow: 0 0 20px #999999;
+}
+
+.link-block {
+    width: 10%;
+    font-weight: bold;
+}
+
+#header {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+#header > div {
+    text-align: center;
+}
+
+canvas {
+    padding: 0;
+    /*width: 50%;
+    height: 50%;*/
+    display: block;
+    margin: 0 auto;
+}
+
+.input_container {
+    font-size: 20px;
+    color: white;
+    text-align: left;
+    margin-bottom: 20px;
+    /*display: flex;
+    justify-content: left;
+    align-items: center;*/
+}
+
+#select_x {
+    width: 30%;
+}
+
+label {
+    margin-right: 10px;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.submit-button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    width: 30%;
+    padding: 10px;
+    height: auto;
+    text-align: center;
+
+    border: none;
+    border-radius: 10px;
+    background: #496479;
+    transition: 300ms;
+}
+
+.submit-button:hover {
+    cursor: pointer;
+    background: #5d8c9f;
+}
+
+button:hover {
+    background: #cccccc;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+#clock {
+    margin: 20px 0 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 20px;
+}
+
+#img_container {
+    background: #e5f8ff;
+}
+
+#results {
+    font-size: 20px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    background: #496479;
+}
+
+#results > tr {
+    margin: 10px;
+    padding: 10px;
+    background: #5eaecc;
+    width: 100%;
+}
+
+#results > td {
+    width: auto;
+    background: #5eaecc;
+    text-align: center;
+    padding: 10px;
+}
